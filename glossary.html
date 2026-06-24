@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="方言电影术语表——理解方言叙事与跨文化传播的关键概念">
+  <title>术语表 — 被世界听懂的"土味"乡音</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif SC', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">
+    <span class="theme-icon"></span>
+  </button>
+
+  <nav class="global-nav">
+    <div class="global-nav-inner">
+      <a href="index.html" class="nav-brand serif">越是地方的，越是世界的</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="deep-dive.html">深度分析</a>
+        <a href="films.html">资料库</a>
+        <a href="visualizations.html">可视化</a>
+        <a href="case-studies.html">案例</a>
+        <a href="timeline.html">脉络</a>
+        <a href="methodology.html">方法</a>
+        <a href="glossary.html" class="active">术语</a>
+        <a href="about.html">关于</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero parallax-container">
+    <div class="container">
+      <p class="section-eyebrow parallax-layer" data-depth="0.3">Glossary</p>
+      <h1 class="page-hero-title serif parallax-layer" data-depth="0.15">术语表</h1>
+      <p class="page-hero-subtitle parallax-layer" data-depth="0.05">理解方言电影传播研究的关键概念<br>从语言学、传播学到电影研究的跨学科词汇</p>
+    </div>
+  </section>
+
+  <!-- Glossary Grid -->
+  <section class="section" style="background:var(--sk-fill);">
+    <div class="container-wide">
+
+      <!-- Category: Core Concepts -->
+      <div class="section-header reveal">
+        <p class="section-number">Core Concepts</p>
+        <h2 class="serif" style="font-size:28px;">核心概念</h2>
+      </div>
+      <div class="glossary-grid reveal-stagger" style="margin-bottom:64px;">
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">破圈</div>
+          <div class="pinyin">pò quān</div>
+          <div class="def">原指内容从原有受众圈层扩散至更广泛人群的过程。在本研究中特指方言电影从方言母语社群扩散至全国乃至全球观众的三级跃迁：本地圈层→区域辐射→全民/全球传播。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">情感原型</div>
+          <div class="pinyin">qíng gǎn yuán xíng</div>
+          <div class="def">跨越具体文化语境、在人类共通经验中可被普遍识别的情感模式。如"祖母的爱""故乡的思念""团圆的渴望"。方言电影通过激活情感原型来消解语言陌生感。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">传播基础设施</div>
+          <div class="pinyin">chuán bō jī chǔ shè shī</div>
+          <div class="def">本研究提出的核心概念，指支撑内容传播的"隐形系统"：短视频算法分发网络、离散社群网络、电影节权威体系、字幕组生态、用户二创机制。区别于"内容为王"的传统叙事。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">离散社群</div>
+          <div class="pinyin">lí sàn shè qún</div>
+          <div class="def">居住在母国之外的移民群体及其后代形成的文化社群。在方言电影出海过程中，离散社群因对母语文化的情感需求而成为最活跃的传播节点和信任桥梁。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">新奇性红利</div>
+          <div class="pinyin">xīn qí xìng hóng lì</div>
+          <div class="def">本研究提出的概念，指方言内容在短视频平台上因"陌生感"而获得的额外停留时长和互动率。算法不识别语言内容，只对停留、互动、分享等行为信号做出反应。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">情感翻译</div>
+          <div class="pinyin">qíng gǎn fān yì</div>
+          <div class="def">观众在面对陌生方言时，绕过语义理解而直接进行情感映射的心理过程。区别于语言翻译（语义层面），情感翻译发生在情感层面，是方言破圈的第一驱动力。</div>
+        </div>
+      </div>
+
+      <!-- Category: Linguistic Terms -->
+      <div class="section-header reveal">
+        <p class="section-number">Linguistics</p>
+        <h2 class="serif" style="font-size:28px;">语言学概念</h2>
+      </div>
+      <div class="glossary-grid reveal-stagger" style="margin-bottom:64px;">
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">闽南语</div>
+          <div class="pinyin">mǐn nán yǔ</div>
+          <div class="def">汉语七大方言之一，主要分布于福建南部、台湾、广东潮汕地区及东南亚华人社群。潮汕片（潮州话）是闽南语的一个重要分支。《给阿嬷的情书》使用的即是潮汕方言。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">西南官话</div>
+          <div class="pinyin">xī nán guān huà</div>
+          <div class="def">官话方言中分布最广、使用人口最多的分支，覆盖四川、重庆、贵州、云南及湖北部分地区。因语调丰富、词汇生动，在喜剧电影中具有天然的幽默优势。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">吴语（上海话）</div>
+          <div class="pinyin">wú yǔ (shàng hǎi huà)</div>
+          <div class="def">吴语的代表性分支，保留中古汉语的浊音和入声，有"吴侬软语"之称。近年来在《繁花》《爱情神话》等作品中，上海话从"市井语言"升格为"都市审美符号"。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">粤语</div>
+          <div class="pinyin">yuè yǔ</div>
+          <div class="def">汉语七大方言之一，主要分布于广东、广西、香港、澳门及海外华人社区。香港电影的黄金时代使粤语成为最具国际影响力的汉语方言之一，拥有完整的影视工业生态。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">客家话</div>
+          <div class="pinyin">kè jiā huà</div>
+          <div class="def">汉语七大方言之一，分布于广东、福建、江西、台湾及东南亚。客家民系以"迁徙"为文化基因，其方言承载着强烈的离散记忆和身份认同，在海外社群中具有独特的传播潜力。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">异化翻译</div>
+          <div class="pinyin">yì huà fān yì</div>
+          <div class="def">翻译学术语（Venuti, 1995），指刻意保留源语言文化特征的翻译策略，与之相对的是"归化翻译"（将源语言转化为目标读者熟悉的表达）。方言电影字幕组偏好异化策略，以保留"A-ma"等词汇的文化质感。</div>
+        </div>
+      </div>
+
+      <!-- Category: Film & Media -->
+      <div class="section-header reveal">
+        <p class="section-number">Film & Media Studies</p>
+        <h2 class="serif" style="font-size:28px;">电影与传播学</h2>
+      </div>
+      <div class="glossary-grid reveal-stagger" style="margin-bottom:64px;">
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">在地性</div>
+          <div class="pinyin">zài dì xìng</div>
+          <div class="def">文化产品与其产生地域之间的深度关联。方言是"在地性"最直接的声景载体。在全球化语境下，"在地性"从传播劣势转化为文化差异化优势。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">字幕组生态</div>
+          <div class="pinyin">zì mù zǔ shēng tài</div>
+          <div class="def">由志愿者组成的去中心化翻译网络。在方言电影出海过程中，留学生字幕组是关键的"最后一公里"基础设施，以近乎零成本实现跨语言适配。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">文化合法性</div>
+          <div class="pinyin">wén huà hé fǎ xìng</div>
+          <div class="def">某种文化产品或实践被主流话语体系承认为"有价值"的状态。国际A类电影节的入围/获奖是方言电影获取"文化合法性"的关键机制，它重新定义了方言从"土"到"文化"的价值坐标。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">UGC (用户生成内容)</div>
+          <div class="pinyin">yòng hù shēng chéng nèi róng</div>
+          <div class="def">由普通用户而非专业机构创作的内容。在本研究中，抖音上的"阿嬷"主题二创视频是UGC的典型形态——观众不是被动接收者，而是主动参与方言文化再传播的创作者。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">网状扩散模型</div>
+          <div class="pinyin">wǎng zhuàng kuò sàn mó xíng</div>
+          <div class="def">与"中心→边缘"单向扩散相对的多节点传播模式。在方言电影的传播中，每个节点（方言母语者、情感共鸣者、算法、离散社群、电影节）既是接收者也是发射器，形成正反馈循环。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">第三空间</div>
+          <div class="pinyin">dì sān kōng jiān</div>
+          <div class="def">后殖民理论家Homi Bhabha提出的概念，指介于两种文化之间的阈限地带。离散社群处于母国与居住国之间的"第三空间"，这一位置使其成为文化传播最具活力的场所。</div>
+        </div>
+      </div>
+
+      <!-- Category: Data & Methods -->
+      <div class="section-header reveal">
+        <p class="section-number">Data Science</p>
+        <h2 class="serif" style="font-size:28px;">数据与方法</h2>
+      </div>
+      <div class="glossary-grid reveal-stagger">
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">词频分析</div>
+          <div class="pinyin">cí pín fēn xī</div>
+          <div class="def">自然语言处理的基础方法，统计文本中词汇的出现频率。本研究使用词频分析识别观众评论中的情感热点和主题分布，构建中英文词云可视化。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">情感计算</div>
+          <div class="pinyin">qíng gǎn jì suàn</div>
+          <div class="def">使用NLP技术自动识别和量化文本中的情感极性（正面/负面/中性）和情感强度。本研究对百万级用户评论进行情感分析，发现方言电影的正面情感率系统性地高于商业片均值。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">面板数据</div>
+          <div class="pinyin">miàn bǎn shù jù</div>
+          <div class="def">同时包含横截面和时间序列两个维度的数据结构。本研究构建了2015—2026年42部方言电影的面板数据集，用于分析票房、评分、传播力度的时序变化和因果推断。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">编码者间信度</div>
+          <div class="pinyin">biān mǎ zhě jiān xìn dù</div>
+          <div class="def">衡量多个编码者对同一内容进行独立编码时一致程度的指标。本研究的定性内容分析采用双人独立编码，Cohen's κ系数达到0.87，表明编码具有高度一致性。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">LDA主题建模</div>
+          <div class="pinyin">LDA zhǔ tí jiàn mó</div>
+          <div class="def">Latent Dirichlet Allocation，一种无监督机器学习算法，用于从大量文本中自动发现潜在主题。本研究使用LDA识别用户评论中隐藏的讨论主题聚类。</div>
+        </div>
+        <div class="glossary-card tilt-3d glass" data-tilt-max="4">
+          <div class="term">社交网络分析</div>
+          <div class="pinyin">shè jiāo wǎng luò fēn xī</div>
+          <div class="def">研究社会关系结构的定量方法，通过节点和边来建模个体或组织之间的连接。本研究使用Gephi绘制海外华人社群中的影片传播网络，识别关键传播节点。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- See Also -->
+  <section class="section" style="background:var(--sk-body-bg);">
+    <div class="container" style="max-width:720px;text-align:center;">
+      <div class="reveal">
+        <p class="section-eyebrow">Explore More</p>
+        <h2 class="serif" style="font-size:28px;margin-bottom:16px;">延伸阅读</h2>
+        <p style="color:var(--text-secondary);font-size:16px;line-height:1.8;">
+          本术语表伴随研究持续更新。如需深入了解特定概念的理论背景和应用场景，请参考
+          <a href="deep-dive.html">深度分析</a>中的详细讨论，以及
+          <a href="methodology.html">研究方法</a>中的方法论说明。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <a href="index.html" class="back-to-top">← 返回首页</a>
+        <p style="margin-top:24px;">© 2026 方言电影传播研究 · 大连外国语大学 · 数据新闻大赛</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="effects3d.js"></script>
+</body>
+</html>

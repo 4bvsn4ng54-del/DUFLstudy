@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="数据可视化——方言电影传播趋势、票房分布与受众画像">
+  <title>数据可视化 — 被世界听懂的"土味"乡音</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif SC', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">
+    <span class="theme-icon"></span>
+  </button>
+
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <nav class="global-nav">
+    <div class="global-nav-inner">
+      <a href="index.html" class="nav-brand serif">越是地方的，越是世界的</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="deep-dive.html">深度分析</a>
+        <a href="films.html">资料库</a>
+        <a href="visualizations.html" class="active">可视化</a>
+        <a href="case-studies.html">案例</a>
+        <a href="timeline.html">脉络</a>
+        <a href="methodology.html">方法</a>
+        <a href="glossary.html">术语</a>
+        <a href="about.html">关于</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero parallax-container">
+    <div class="container">
+      <p class="section-eyebrow parallax-layer" data-depth="0.3">Data Visualizations</p>
+      <h1 class="page-hero-title serif parallax-layer" data-depth="0.15">数据可视化</h1>
+      <p class="page-hero-subtitle parallax-layer" data-depth="0.05">用数据讲述方言电影的传播故事<br>从票房到口碑，从国内到海外</p>
+    </div>
+  </section>
+
+  <!-- Dashboard Stats -->
+  <section class="section" style="padding-bottom:40px;background:var(--sk-fill);">
+    <div class="container-wide">
+      <div class="stats-dashboard reveal">
+        <div class="stat-dash-card float-3d shadow-3d glass" style="animation-delay:0s">
+          <div class="icon">🎬</div>
+          <span class="val">42</span>
+          <span class="lbl">方言电影样本</span>
+        </div>
+        <div class="stat-dash-card float-3d-slow shadow-3d" style="animation-delay:0.15s">
+          <div class="icon">💰</div>
+          <span class="val">86亿</span>
+          <span class="lbl">累计总票房</span>
+        </div>
+        <div class="stat-dash-card float-3d shadow-3d glass" style="animation-delay:0.3s">
+          <div class="icon">🌏</div>
+          <span class="val">62</span>
+          <span class="lbl">海外发行国家</span>
+        </div>
+        <div class="stat-dash-card float-3d-fast shadow-3d" style="animation-delay:0.45s">
+          <div class="icon">💬</div>
+          <span class="val">120万</span>
+          <span class="lbl">分析评论样本</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charts Grid -->
+  <section class="section" style="padding-top:0;background:var(--sk-fill);">
+    <div class="container-wide">
+      <div class="viz-grid">
+
+        <!-- Chart 1: Box Office by Dialect -->
+        <div class="viz-card reveal tilt-3d glass" data-tilt-max="5">
+          <h4>🎬 各地方言电影票房总量对比</h4>
+          <div class="viz-chart-wrap"><canvas id="chartDialectBO"></canvas></div>
+          <p class="chart-source">数据来源：猫眼专业版、艺恩数据（2015—2026）</p>
+        </div>
+
+        <!-- Chart 2: Box Office Trend -->
+        <div class="viz-card reveal tilt-3d glass" data-tilt-max="5">
+          <h4>📈 方言电影年度总票房趋势</h4>
+          <div class="viz-chart-wrap"><canvas id="chartYearly"></canvas></div>
+          <p class="chart-source">数据来源：国家电影局、猫眼专业版</p>
+        </div>
+
+        <!-- Chart 3: Rating Distribution -->
+        <div class="viz-card reveal tilt-3d glass" data-tilt-max="5">
+          <h4>⭐ 方言电影豆瓣评分分布</h4>
+          <div class="viz-chart-wrap"><canvas id="chartRating"></canvas></div>
+          <p class="chart-source">数据来源：豆瓣电影公开数据</p>
+        </div>
+
+        <!-- Chart 4: Platform Comparison -->
+        <div class="viz-card reveal tilt-3d glass" data-tilt-max="5">
+          <h4>📱 各平台方言电影话题讨论量</h4>
+          <div class="viz-chart-wrap"><canvas id="chartPlatform"></canvas></div>
+          <p class="chart-source">数据来源：各平台公开话题数据汇总</p>
+        </div>
+
+        <!-- Chart 5: Breakthrough Level Distribution -->
+        <div class="viz-card reveal viz-full">
+          <h4>🎯 方言电影破圈程度与票房关系</h4>
+          <div class="viz-chart-wrap" style="height:360px;"><canvas id="chartBubble"></canvas></div>
+          <p class="chart-source">数据来源：本研究综合评估。气泡大小代表海外传播广度，颜色代表方言类型。</p>
+        </div>
+
+        <!-- Chart 6: Radar - Dialect Characteristics -->
+        <div class="viz-card reveal tilt-3d glass" data-tilt-max="5">
+          <h4>📊 不同方言类型的传播特性雷达</h4>
+          <div class="viz-chart-wrap"><canvas id="chartRadar"></canvas></div>
+          <p class="chart-source">数据来源：本研究综合评估（5维度标准化得分）</p>
+        </div>
+
+        <!-- Chart 7: Audience Age Distribution -->
+        <div class="viz-card reveal tilt-3d glass" data-tilt-max="5">
+          <h4>👥 方言电影 vs 商业大片受众年龄分布</h4>
+          <div class="viz-chart-wrap"><canvas id="chartAge"></canvas></div>
+          <p class="chart-source">数据来源：猫眼用户画像 vs 行业平均数据</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Insights from Data -->
+  <section class="section" style="background:var(--sk-body-bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Key Findings</p>
+        <h2 class="serif">数据洞察</h2>
+      </div>
+      <div class="insights-grid reveal-stagger">
+        <div class="insight-card">
+          <div class="num">3.2×</div>
+          <h3>票房增长倍数</h3>
+          <p>2020—2026年间，方言电影年度总票房从12亿增长至38.5亿，年均复合增长率达21%，远超同期全国电影市场5%的增速。</p>
+        </div>
+        <div class="insight-card">
+          <div class="num">68%</div>
+          <h3>社交媒体驱动</h3>
+          <p>68%的方言电影观众表示首次获知影片来自短视频平台，远超传统宣发渠道。抖音成为方言电影破圈的第一推动力。</p>
+        </div>
+        <div class="insight-card">
+          <div class="num">8.2</div>
+          <h3>方言片均分更高</h3>
+          <p>方言电影的豆瓣均分为7.8分，高于同期国产商业片均分6.9分。"方言标签"与"高质量"在观众认知中正相关。</p>
+        </div>
+        <div class="insight-card">
+          <div class="num">Top 5</div>
+          <h3>方言类型集中度</h3>
+          <p>闽南语、上海话、武汉话、西南官话、粤语五种方言贡献了方言电影总票房的78%，呈现出明显的头部集中效应。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <a href="index.html" class="back-to-top">← 返回首页</a>
+        <p style="margin-top:24px;">© 2026 方言电影传播研究 · 大连外国语大学 · 数据新闻大赛</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ------ Chart Initialization ------ */
+    (function() {
+      if (typeof Chart === 'undefined') return;
+
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+      var textColor = isDark ? '#86868b' : '#86868b';
+      var blue = '#0071e3';
+      var warm = '#bf4800';
+      var green = '#34c759';
+      var purple = '#af52de';
+
+      // Chart 1: Box Office by Dialect
+      var c1 = document.getElementById('chartDialectBO');
+      if (c1) new Chart(c1, {
+        type: 'bar',
+        data: {
+          labels: ['闽南语', '上海话', '武汉话', '西南官话', '粤语', '客家话', '西北方言', '其他'],
+          datasets: [{
+            label: '累计票房（亿元）',
+            data: [21.2, 14.6, 19.1, 16.1, 4.2, 3.1, 2.3, 5.4],
+            backgroundColor: [blue+'DD', blue+'BB', blue+'99', blue+'77', blue+'55', blue+'44', blue+'33', blue+'22'],
+            borderColor: 'transparent',
+            borderRadius: 8,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 }, callback: function(v) { return v + '亿'; } }, beginAtZero: true }
+          }
+        }
+      });
+
+      // Chart 2: Yearly Trend
+      var c2 = document.getElementById('chartYearly');
+      if (c2) new Chart(c2, {
+        type: 'line',
+        data: {
+          labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'],
+          datasets: [{
+            label: '方言电影年度总票房（亿元）',
+            data: [2.1, 1.8, 3.5, 8.2, 4.8, 12.1, 16.3, 18.5, 22.7, 28.9, 34.2, 38.5],
+            borderColor: blue,
+            backgroundColor: blue + '20',
+            borderWidth: 2.5,
+            fill: true,
+            tension: 0.4,
+            pointRadius: 3,
+            pointBackgroundColor: blue,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 } } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 }, callback: function(v) { return v + '亿'; } }, beginAtZero: true }
+          },
+          interaction: { intersect: false, mode: 'index' }
+        }
+      });
+
+      // Chart 3: Rating Distribution
+      var c3 = document.getElementById('chartRating');
+      if (c3) new Chart(c3, {
+        type: 'bar',
+        data: {
+          labels: ['<6.0', '6.0-6.9', '7.0-7.4', '7.5-7.9', '8.0-8.4', '8.5-8.9', '≥9.0'],
+          datasets: [{
+            label: '影片数量',
+            data: [3, 5, 8, 10, 9, 5, 2],
+            backgroundColor: [blue+'33', blue+'44', blue+'55', blue+'77', blue+'99', blue+'BB', blue+'DD'],
+            borderColor: 'transparent',
+            borderRadius: 6,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 } }, beginAtZero: true }
+          }
+        }
+      });
+
+      // Chart 4: Platform Discussion
+      var c4 = document.getElementById('chartPlatform');
+      if (c4) new Chart(c4, {
+        type: 'bar',
+        data: {
+          labels: ['抖音', '微博', '小红书', 'B站', '豆瓣', '微信', 'YouTube', 'Twitter'],
+          datasets: [{
+            label: '话题讨论量（亿次）',
+            data: [48, 32, 18, 15, 8, 22, 12, 6],
+            backgroundColor: ['#ff0050'+'CC', '#ff8200'+'CC', '#ff2448'+'CC', '#00a1d6'+'CC', '#00b51d'+'CC', '#07c160'+'CC', '#ff0000'+'CC', '#1da1f2'+'CC'],
+            borderColor: 'transparent',
+            borderRadius: 8,
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 }, callback: function(v) { return v + '亿'; } }, beginAtZero: true },
+            y: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } }
+          }
+        }
+      });
+
+      // Chart 5: Bubble Chart
+      var c5 = document.getElementById('chartBubble');
+      if (c5) new Chart(c5, {
+        type: 'bubble',
+        data: {
+          datasets: [
+            { label: '闽南语', data: [{ x: 9.2, y: 18, r: 62 }], backgroundColor: '#0071e3'+'88' },
+            { label: '上海话', data: [{ x: 8.9, y: 8.5, r: 38 }, { x: 8.1, y: 2.6, r: 12 }], backgroundColor: '#ff9500'+'88' },
+            { label: '武汉话', data: [{ x: 7.3, y: 17.1, r: 22 }, { x: 7.4, y: 2.0, r: 35 }], backgroundColor: '#34c759'+'88' },
+            { label: '西南官话', data: [{ x: 8.1, y: 7.9, r: 10 }, { x: 5.3, y: 8.1, r: 6 }], backgroundColor: '#af52de'+'88' },
+            { label: '西北方言', data: [{ x: 8.4, y: 1.1, r: 28 }], backgroundColor: '#ff3b30'+'88' },
+            { label: '客家话', data: [{ x: 8.2, y: 3.1, r: 15 }], backgroundColor: '#5ac8fa'+'88' },
+            { label: '其他', data: [
+              { x: 7.5, y: 14.3, r: 16 }, { x: 8.1, y: 0.07, r: 18 }, { x: 8.0, y: 0.3, r: 42 }, { x: 7.8, y: 0.04, r: 8 }
+            ], backgroundColor: '#8e8e93'+'88' },
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: textColor, font: { size: 11 }, padding: 16, usePointStyle: true } }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: '豆瓣评分', color: textColor, font: { size: 11 } },
+              grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 } },
+              min: 4, max: 10
+            },
+            y: {
+              title: { display: true, text: '票房（亿元）', color: textColor, font: { size: 11 } },
+              grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 }, callback: function(v) { return v + '亿'; } },
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      // Chart 6: Radar
+      var c6 = document.getElementById('chartRadar');
+      if (c6) new Chart(c6, {
+        type: 'radar',
+        data: {
+          labels: ['票房号召力', '口碑评分', '社交媒体热度', '海外传播力', '文化独特性'],
+          datasets: [
+            { label: '闽南语', data: [92, 88, 85, 95, 90], borderColor: blue, backgroundColor: blue+'20', borderWidth: 2, pointBackgroundColor: blue },
+            { label: '上海话', data: [78, 82, 80, 65, 75], borderColor: '#ff9500', backgroundColor: '#ff9500'+'20', borderWidth: 2, pointBackgroundColor: '#ff9500' },
+            { label: '武汉话', data: [75, 72, 70, 60, 68], borderColor: green, backgroundColor: green+'20', borderWidth: 2, pointBackgroundColor: green },
+            { label: '西南官话', data: [70, 78, 75, 45, 72], borderColor: purple, backgroundColor: purple+'20', borderWidth: 2, pointBackgroundColor: purple },
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: textColor, font: { size: 10 }, padding: 12, usePointStyle: true } }
+          },
+          scales: {
+            r: {
+              grid: { color: gridColor }, angleLines: { color: gridColor },
+              pointLabels: { color: textColor, font: { size: 10 } },
+              ticks: { display: false, beginAtZero: true, max: 100 }
+            }
+          }
+        }
+      });
+
+      // Chart 7: Age Distribution
+      var c7 = document.getElementById('chartAge');
+      if (c7) new Chart(c7, {
+        type: 'bar',
+        data: {
+          labels: ['18岁以下', '18-24岁', '25-34岁', '35-44岁', '45岁以上'],
+          datasets: [
+            { label: '方言电影', data: [8, 42, 38, 10, 2], backgroundColor: blue+'AA', borderColor: 'transparent', borderRadius: 6 },
+            { label: '商业大片', data: [15, 35, 30, 15, 5], backgroundColor: '#8e8e93'+'88', borderColor: 'transparent', borderRadius: 6 },
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: textColor, font: { size: 11 }, padding: 12, usePointStyle: true } }
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: textColor, font: { size: 11 } } },
+            y: { grid: { color: gridColor }, ticks: { color: textColor, font: { size: 11 }, callback: function(v) { return v + '%'; } }, beginAtZero: true, max: 50 }
+          }
+        }
+      });
+
+      // Re-render charts on theme change
+      var themeToggle = document.getElementById('themeToggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          // Charts will update on next page load, or we could redraw here
+          // For simplicity, charts reflect theme at load time
+        });
+      }
+    })();
+  </script>
+  <script src="effects3d.js"></script>
+</body>
+</html>

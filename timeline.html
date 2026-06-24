@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="历史脉络——中国方言电影从边缘到主流的百年演进">
+  <title>历史脉络 — 被世界听懂的"土味"乡音</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif SC', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">
+    <span class="theme-icon"></span>
+  </button>
+
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <nav class="global-nav">
+    <div class="global-nav-inner">
+      <a href="index.html" class="nav-brand serif">越是地方的，越是世界的</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="deep-dive.html">深度分析</a>
+        <a href="films.html">资料库</a>
+        <a href="visualizations.html">可视化</a>
+        <a href="case-studies.html">案例</a>
+        <a href="timeline.html" class="active">脉络</a>
+        <a href="methodology.html">方法</a>
+        <a href="glossary.html">术语</a>
+        <a href="about.html">关于</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero parallax-container">
+    <div class="container">
+      <p class="section-eyebrow parallax-layer" data-depth="0.3">Historical Evolution</p>
+      <h1 class="page-hero-title serif parallax-layer" data-depth="0.15">历史脉络</h1>
+      <p class="page-hero-subtitle parallax-layer" data-depth="0.05">中国方言电影从边缘到主流的百年演进<br>一段关于"声音"的文化变迁史</p>
+      <div class="timeline-hero-stat parallax-layer" data-depth="0.08">
+        <span class="num">120+</span>
+        <span class="unit">部方言电影</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era-by-Era Timeline -->
+  <section class="section" style="background:var(--sk-body-bg);">
+    <div class="container" style="max-width:760px;">
+
+      <!-- Era 1: Silent to Sound -->
+      <div class="era-section reveal">
+        <div class="era-header">
+          <div class="era-dot" style="background:var(--sk-focus);"></div>
+          <div>
+            <h2>萌芽期：无声到有声的过渡</h2>
+            <span class="era-years">1930s — 1970s</span>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:24px;">
+          中国电影在从无声转向有声的过程中，首先面临的是"说哪种话"的问题。早期有声电影以国语（普通话的前身）为主导，方言仅零星出现在喜剧桥段中，作为"丑角"或"乡下人"的标签。这一时期的方言使用是功能性的、刻板的，而非文化自觉的表达。
+        </p>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">1934</div>
+          <div class="tl-event-body">
+            <h4>《姊妹花》——早期方言的偶然登场</h4>
+            <p>胡蝶主演，片中少量方言台词用于角色区隔。方言在此阶段主要作为阶级和地域的标识符号使用。</p>
+            <div class="tl-tags"><span class="tl-tag">上海</span><span class="tl-tag">黑白默片转有声</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">1963</div>
+          <div class="tl-event-body">
+            <h4>《刘三姐》——山歌中的方言基因</h4>
+            <p>虽然以普通话为主，但壮族山歌的韵律和词汇保留了强烈的地方语言特色，成为"方言性"在大众文化中的早期渗透。</p>
+            <div class="tl-tags"><span class="tl-tag">广西</span><span class="tl-tag">少数民族</span><span class="tl-tag">音乐片</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Era 2: Regional Awakening -->
+      <div class="era-section reveal">
+        <div class="era-header">
+          <div class="era-dot" style="background:#ff9500;"></div>
+          <div>
+            <h2>觉醒期：地域意识的苏醒</h2>
+            <span class="era-years">1980s — 1990s</span>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:24px;">
+          改革开放后，地方文化开始复苏。香港粤语电影的黄金时代通过录像厅和VCD进入内地，让内地观众第一次大规模接触到"听不懂但看得津津有味"的方言影像。与此同时，第五代导演开始将地方性作为美学探索的一部分。
+        </p>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">1984</div>
+          <div class="tl-event-body">
+            <h4>《黄土地》——第五代导演的地方性觉醒</h4>
+            <p>陈凯歌导演、张艺谋摄影的里程碑作品。虽然对白为普通话，但陕北民歌和方言韵律的融入开创了"地方性作为美学资源"的先河。</p>
+            <div class="tl-tags"><span class="tl-tag">第五代</span><span class="tl-tag">陕北</span><span class="tl-tag">美学探索</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">1992</div>
+          <div class="tl-event-body">
+            <h4>《秋菊打官司》——方言作为真实性的武器</h4>
+            <p>张艺谋让巩俐全程使用陕西方言表演，这一决定在当时具有先锋性。方言在此不再是喜剧标签，而是"纪实美学"的核心工具。影片获威尼斯金狮奖。</p>
+            <div class="tl-tags"><span class="tl-tag">威尼斯</span><span class="tl-tag">纪实美学</span><span class="tl-tag">陕西</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">1997</div>
+          <div class="tl-event-body">
+            <h4>香港粤语电影的全盛期</h4>
+            <p>以周星驰喜剧、王家卫文艺片为代表的香港粤语电影通过盗版VCD风靡内地。粤语从"听不懂的方言"变成了一种"酷文化符号"——这是方言文化传播史上的一个重要转折。</p>
+            <div class="tl-tags"><span class="tl-tag">香港</span><span class="tl-tag">粤语</span><span class="tl-tag">流行文化</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Era 3: Diversification -->
+      <div class="era-section reveal">
+        <div class="era-header">
+          <div class="era-dot" style="background:#34c759;"></div>
+          <div>
+            <h2>多元期：方言电影的类型化探索</h2>
+            <span class="era-years">2000s — 2010s</span>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:24px;">
+          进入新世纪，方言电影开始从"文艺片专属"向商业类型拓展。宁浩的"疯狂"系列证明了方言在商业喜剧中的爆发力，贾樟柯持续用山西方言建构其电影宇宙。这一时期的核心变化是：方言不再只是"真实性"的工具，而开始成为"类型元素"。
+        </p>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2006</div>
+          <div class="tl-event-body">
+            <h4>《疯狂的石头》——方言喜剧的范式开创</h4>
+            <p>宁浩用重庆话、青岛话、河北话、粤语等多方言混杂的方式拍出了一部票房黑马。方言的多声部交织既是笑料来源，也是社会阶层和地域文化的隐喻。这部影片彻底改变了行业对方言商业价值的认知。</p>
+            <div class="tl-tags"><span class="tl-tag">重庆</span><span class="tl-tag">喜剧</span><span class="tl-tag">多方言</span><span class="tl-tag">黑马</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2006</div>
+          <div class="tl-event-body">
+            <h4>《三峡好人》——方言作为时代的录音机</h4>
+            <p>贾樟柯以山西方言和重庆方言记录三峡移民的生存状态。影片获威尼斯金狮奖，方言在此是"记录时代声音"的媒介——它捕捉的不仅是对白，更是一个正在消失的世界的声音。</p>
+            <div class="tl-tags"><span class="tl-tag">威尼斯</span><span class="tl-tag">山西</span><span class="tl-tag">纪实</span><span class="tl-tag">贾樟柯</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2015</div>
+          <div class="tl-event-body">
+            <h4>《山河故人》——方言与全球化</h4>
+            <p>贾樟柯将山西方言置于从1999年到2025年的长时段叙事中，展现方言在全球化浪潮中如何成为"身份锚点"。影片开启了中国方言电影走向国际电影节的稳定通道。</p>
+            <div class="tl-tags"><span class="tl-tag">戛纳</span><span class="tl-tag">全球化</span><span class="tl-tag">离散</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Era 4: Breakout Era -->
+      <div class="era-section reveal">
+        <div class="era-header">
+          <div class="era-dot" style="background:#af52de;"></div>
+          <div>
+            <h2>破圈期：短视频时代的方言爆发</h2>
+            <span class="era-years">2020s — 至今</span>
+          </div>
+        </div>
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:24px;">
+          短视频平台的崛起彻底改变了方言内容的传播生态。算法推荐机制让方言从"传播障碍"转化为"高信号内容"，方言电影迎来了前所未有的破圈机遇。这一时期，方言电影不仅在票房上屡创新高，更开始系统性地进入国际文化流通。
+        </p>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2020</div>
+          <div class="tl-event-body">
+            <h4>《送你一朵小红花》——方言商业片的新高度</h4>
+            <p>青岛方言与抗癌题材的结合创造了14.3亿票房，证明方言在"沉重题材+生活化表达"的组合中具有独特的情绪调节功能。</p>
+            <div class="tl-tags"><span class="tl-tag">青岛</span><span class="tl-tag">商业片</span><span class="tl-tag">抗癌</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2021</div>
+          <div class="tl-event-body">
+            <h4>《爱情神话》——沪语都市美学的诞生</h4>
+            <p>全沪语对白的都市轻喜剧，将上海话从"老一辈的语言"重塑为"都市中产的审美选择"。沪语不再是怀旧的符号，而成为当代都市生活的一部分。</p>
+            <div class="tl-tags"><span class="tl-tag">上海</span><span class="tl-tag">都市</span><span class="tl-tag">审美转向</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2022</div>
+          <div class="tl-event-body">
+            <h4>年度双核：武汉话的两种胜利</h4>
+            <p>《人生大事》（17.1亿）证明武汉方言的喜剧-悲剧双重表现力；《隐入尘烟》（1.1亿）展示西北方言在国际电影节体系中的独特价值。两种截然不同的破圈路径在同一年出现，标志着方言电影进入"多路径并行"的成熟期。</p>
+            <div class="tl-tags"><span class="tl-tag">武汉</span><span class="tl-tag">甘肃</span><span class="tl-tag">双路径</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2024</div>
+          <div class="tl-event-body">
+            <h4>《繁花》——沪语的审美巅峰</h4>
+            <p>王家卫将沪语从"地方性"提升为"审美符号"，方言在顶级导演手中实现了文化价值的跃迁。该剧的全球流媒体发行（HBO等平台）使沪语首次以"高端内容"的姿态进入全球文化市场。</p>
+            <div class="tl-tags"><span class="tl-tag">上海</span><span class="tl-tag">王家卫</span><span class="tl-tag">全球发行</span></div>
+          </div>
+        </div>
+        <div class="tl-event reveal-3d-left">
+          <div class="tl-event-year">2026</div>
+          <div class="tl-event-body">
+            <h4>《给阿嬷的情书》——破圈引擎的完整呈现</h4>
+            <p>整合了此前所有路径的优点：短视频情感裂变（算法红利）、离散社群传播（社交媒体桥接）、国际电影节认可（文化合法性）、字幕组生态（低成本翻译）。方言电影传播的"完整破圈引擎"首次得到系统性验证。</p>
+            <div class="tl-tags"><span class="tl-tag">潮汕</span><span class="tl-tag">巅峰</span><span class="tl-tag">完整引擎</span><span class="tl-tag">18亿</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Future Outlook -->
+      <div class="reveal" style="text-align:center;margin-top:64px;padding:40px;background:var(--card-bg);border-radius:20px;border:1px solid var(--border);">
+        <p class="section-eyebrow">Looking Ahead</p>
+        <h2 class="serif" style="font-size:28px;margin-bottom:16px;">下一个篇章</h2>
+        <p style="font-size:16px;color:var(--text-secondary);line-height:1.8;max-width:560px;margin:0 auto;">
+          如果说萌芽期回答的是"能不能用方言"，觉醒期回答的是"为什么要用方言"，多元期回答的是"方言能做什么类型"，那么破圈期正在回答一个更深刻的问题：<strong style="color:var(--sk-body-text);">在算法和全球化的时代，"地方的"如何成为"世界的"？</strong>这个问题的答案，正在被每一部新的方言电影所书写。
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <a href="index.html" class="back-to-top">← 返回首页</a>
+        <p style="margin-top:24px;">© 2026 方言电影传播研究 · 大连外国语大学 · 数据新闻大赛</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="effects3d.js"></script>
+</body>
+</html>

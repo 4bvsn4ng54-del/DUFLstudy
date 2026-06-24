@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="关于方言电影破圈传播研究——大连外国语大学">
+  <title>关于研究 — 被世界听懂的"土味"乡音</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif SC', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">
+    <span class="theme-icon"></span>
+  </button>
+
+  <!-- Global Navigation -->
+  <nav class="global-nav">
+    <div class="global-nav-inner">
+      <a href="index.html" class="nav-brand serif">越是地方的，越是世界的</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="deep-dive.html">深度分析</a>
+        <a href="films.html">资料库</a>
+        <a href="visualizations.html">可视化</a>
+        <a href="case-studies.html">案例</a>
+        <a href="timeline.html">脉络</a>
+        <a href="methodology.html">方法</a>
+        <a href="glossary.html">术语</a>
+        <a href="about.html" class="active">关于</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero parallax-container">
+    <div class="container">
+      <p class="section-eyebrow parallax-layer" data-depth="0.3">About the Research</p>
+      <h1 class="page-hero-title serif parallax-layer" data-depth="0.15">关于研究</h1>
+      <p class="page-hero-subtitle parallax-layer" data-depth="0.05">一项关于方言叙事如何跨越语言与地域<br>实现全球传播的传播学研究</p>
+    </div>
+  </section>
+
+  <!-- Researcher Profile -->
+  <section class="section" style="background: var(--sk-body-bg);">
+    <div class="container">
+      <div class="profile-grid reveal">
+        <!-- Avatar placeholder -->
+        <div class="profile-visual">
+          <div class="profile-avatar">
+            <span>研</span>
+          </div>
+          <div class="profile-affiliation">
+            <h3 class="serif" style="font-size:22px;margin-bottom:4px;">大连外国语大学</h3>
+            <p style="color:var(--text-secondary);font-size:14px;">Dalian University of Foreign Languages</p>
+          </div>
+        </div>
+
+        <div class="profile-info">
+          <h2 style="font-size:clamp(24px,4vw,36px);font-weight:600;margin-bottom:16px;letter-spacing:-0.02em;">研究缘起</h2>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:16px;">
+            2026年4月，《给阿嬷的情书》以潮汕方言为主要对白，融合侨批记忆与南洋华人迁徙史，从排片率仅1.6%的边缘处境出发，最终逆袭至18亿票房，豆瓣9.2分，成为年度现象级电影。
+          </p>
+          <p style="color:var(--text-secondary);line-height:1.9;margin-bottom:16px;">
+            作为外国语大学的研究者，我们天然关注"语言"与"传播"的交叉地带。本研究整合2019至2026年全域乡土内容——涵盖院线电影、短视频、海外纪实直播——探寻在地化叙事如何消解语言与文化双重隔阂，构建温和立体的中国故事对外传播路径。
+          </p>
+          <p style="color:var(--text-secondary);line-height:1.9;">
+            本研究尝试跳出传统的文本分析范式，转而关注<strong style="color:var(--sk-body-text);">传播基础设施</strong>——短视频算法、离散社群网络、侨批乡愁文化、多语种字幕组生态、国际电影节体系——在方言文化"破圈"过程中扮演的枢纽角色。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="section" style="background: var(--sk-fill);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Methodology</p>
+        <h2 class="serif">研究框架</h2>
+        <p>综合三种方法，追踪一条完整的传播链条</p>
+      </div>
+
+      <div class="method-grid reveal-stagger">
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">🔍</div>
+          <h4>传播路径分析</h4>
+          <p>追踪影片从方言社群到全球观众的四阶段传播链条，识别每个跃迁节点的关键驱动力和传播中介。</p>
+          <span class="method-tag">定性分析</span>
+        </div>
+
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">📊</div>
+          <h4>多平台话语分析</h4>
+          <p>采集抖音、微博、小红书、豆瓣、YouTube等平台的用户生成内容，分析不同平台上"方言"被如何编码和解读。</p>
+          <span class="method-tag">混合方法</span>
+        </div>
+
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">🌐</div>
+          <h4>社交网络分析</h4>
+          <p>绘制海外华人社群中的影片传播网络，识别关键传播节点和跨平台流动路径。</p>
+          <span class="method-tag">定量分析</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Timeline -->
+  <section class="section" style="background: var(--sk-body-bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Process</p>
+        <h2 class="serif">研究历程</h2>
+      </div>
+
+      <div class="research-timeline reveal-stagger">
+        <div class="rt-item">
+          <div class="rt-dot"></div>
+          <div class="rt-content">
+            <span class="rt-date">2026.04</span>
+            <h4>现象观察</h4>
+            <p>《给阿嬷的情书》4月30日上映后出现"低开高走"的异常曲线，首日排片仅1.6%，引发研究兴趣。</p>
+          </div>
+        </div>
+        <div class="rt-item">
+          <div class="rt-dot"></div>
+          <div class="rt-content">
+            <span class="rt-date">2026.05–07</span>
+            <h4>数据采集</h4>
+            <p>系统性收集票房数据、全平台社交话题数据、海外发行数据和多语种受众评论。</p>
+          </div>
+        </div>
+        <div class="rt-item">
+          <div class="rt-dot"></div>
+          <div class="rt-content">
+            <span class="rt-date">2026.07–09</span>
+            <h4>框架建构</h4>
+            <p>提出"传播基础设施驱动的破圈模型"，整合院线电影、短视频、海外纪实全域数据，对比分析多方言样本。</p>
+          </div>
+        </div>
+        <div class="rt-item">
+          <div class="rt-dot"></div>
+          <div class="rt-content">
+            <span class="rt-date">2026.09–12</span>
+            <h4>数据新闻作品与展示</h4>
+            <p>完成数据新闻作品，构建本网站作为研究成果的全媒体可视化呈现。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Sources -->
+  <section class="section" style="background: var(--sk-fill);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Data</p>
+        <h2 class="serif">数据来源</h2>
+      </div>
+
+      <div class="sources-grid reveal-stagger">
+        <div class="source-card shadow-3d glass">
+          <h4>🎬 电影市场数据</h4>
+          <ul>
+            <li>猫眼专业版</li>
+            <li>灯塔专业版</li>
+            <li>艺恩数据</li>
+          </ul>
+        </div>
+        <div class="source-card shadow-3d glass">
+          <h4>💬 社交媒体数据</h4>
+          <ul>
+            <li>抖音话题数据</li>
+            <li>微博热搜与超话</li>
+            <li>小红书笔记</li>
+            <li>豆瓣影评与评分</li>
+          </ul>
+        </div>
+        <div class="source-card shadow-3d glass">
+          <h4>🌏 海外传播数据</h4>
+          <ul>
+            <li>IMDb / Rotten Tomatoes</li>
+            <li>YouTube评论分析</li>
+            <li>各国电影数据库</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="reveal" style="text-align:center;color:var(--text-tertiary);font-size:14px;margin-top:48px;line-height:1.8;">
+        注：本网站展示的数据均为学术研究示意，部分数据经过脱敏处理，不代表精确实际数值。<br>
+        研究遵循学术伦理规范，所有公开数据分析均基于合法获取的公开信息。
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" style="background: var(--sk-body-bg);">
+    <div class="container" style="max-width:600px;text-align:center;">
+      <div class="reveal">
+        <p class="section-number">Contact</p>
+        <h2 class="serif" style="font-size:clamp(28px,4vw,40px);margin-bottom:16px;">学术交流</h2>
+        <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:40px;">
+          本研究由大连外国语大学研究团队完成。<br>
+          欢迎方言电影研究者、传播学者、电影从业者交流讨论。
+        </p>
+
+        <div class="contact-card glass">
+          <div class="contact-row">
+            <span class="contact-label">研究机构</span>
+            <span>大连外国语大学</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">研究方向</span>
+            <span>跨文化传播 · 方言媒介 · 离散社群</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">联系邮箱</span>
+            <span style="color:var(--sk-focus);">dialect-film@dlufl.edu.cn</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0;">
+        <a href="index.html" class="back-to-top">← 返回首页</a>
+        <p style="margin-top:24px;">© 2026 方言电影传播研究 · 大连外国语大学 · 数据新闻大赛</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="effects3d.js"></script>
+</body>
+</html>

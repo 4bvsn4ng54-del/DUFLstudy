@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="案例研究——深度剖析六部方言电影的破圈传播路径">
+  <title>案例研究 — 被世界听懂的"土味"乡音</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif SC', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">
+    <span class="theme-icon"></span>
+  </button>
+
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <nav class="global-nav">
+    <div class="global-nav-inner">
+      <a href="index.html" class="nav-brand serif">越是地方的，越是世界的</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="deep-dive.html">深度分析</a>
+        <a href="films.html">资料库</a>
+        <a href="visualizations.html">可视化</a>
+        <a href="case-studies.html" class="active">案例</a>
+        <a href="timeline.html">脉络</a>
+        <a href="methodology.html">方法</a>
+        <a href="glossary.html">术语</a>
+        <a href="about.html">关于</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero parallax-container">
+    <div class="container">
+      <p class="section-eyebrow parallax-layer" data-depth="0.3">Case Studies</p>
+      <h1 class="page-hero-title serif parallax-layer" data-depth="0.15">案例研究</h1>
+      <p class="page-hero-subtitle parallax-layer" data-depth="0.05">选取六部具有代表性的方言电影<br>深度剖析各自的破圈路径与传播机制</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section" style="padding-bottom:40px;background:var(--sk-fill);">
+    <div class="container">
+      <div class="reveal" style="max-width:720px;margin:0 auto;">
+        <p style="font-size:17px;line-height:1.9;color:var(--text-secondary);">
+          以下六部影片分别代表了不同的方言类型、传播模式和破圈程度。通过比较分析，我们可以识别出方言电影成功传播的<strong style="color:var(--sk-body-text);">共性条件</strong>与<strong style="color:var(--sk-body-text);">差异化路径</strong>——并非所有方言电影都需要走同一条路，但所有成功案例都共享某些关键的传播基础设施。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="section" style="padding-top:0;background:var(--sk-fill);">
+    <div class="container-wide">
+      <div class="case-grid reveal-stagger">
+
+        <!-- Case 1: 给阿嬷的情书 -->
+        <div class="case-card tilt-3d shadow-3d glass" data-tilt-max="6" data-tilt-glare="true">
+          <div class="case-card-header">
+            <span class="case-year">2026 · 现象级破圈</span>
+            <h3>给阿嬷的情书</h3>
+            <span class="case-dialect">闽南语（潮汕片）</span>
+          </div>
+          <div class="case-card-body">
+            <p>从排片率1.6%的边缘处境出发，依靠抖音短视频的"情感裂变"传播，最终逆袭至18亿票房。其成功的关键不在于"讲了一个好故事"，而在于故事中的情感原型——"阿嬷"——具备跨语言、跨地域的普遍可识别性。海外离散社群的主动传播使其成为真正意义上的全球文化产品。</p>
+            <div class="case-stat-row">
+              <div class="case-stat"><span class="val">18亿</span><span class="lbl">票房</span></div>
+              <div class="case-stat"><span class="val">9.2</span><span class="lbl">豆瓣</span></div>
+              <div class="case-stat"><span class="val">62国</span><span class="lbl">海外发行</span></div>
+              <div class="case-stat"><span class="val">48亿</span><span class="lbl">抖音话题</span></div>
+            </div>
+            <p style="font-size:13px;color:var(--sk-focus);margin-top:8px;">
+              <strong>关键发现：</strong>情感原型的跨语言可及性 + 短视频算法的高信号识别 + 离散社群的信任桥接 = 完整的破圈引擎。
+            </p>
+          </div>
+        </div>
+
+        <!-- Case 2: 繁花 -->
+        <div class="case-card tilt-3d shadow-3d glass" data-tilt-max="6" data-tilt-glare="true">
+          <div class="case-card-header">
+            <span class="case-year">2024 · 文化现象</span>
+            <h3>繁花</h3>
+            <span class="case-dialect">上海话</span>
+          </div>
+          <div class="case-card-body">
+            <p>王家卫的首部电视剧作品，全程沪语对白。其传播路径与"阿嬷"截然不同——不依赖情感裂变，而是凭借王家卫的个人品牌和文化资本，将沪语从"地方性"转化为"审美性"。沪语在剧中不是沟通工具，而是一种审美符号，观众消费的是"沪语的文化质感"而非故事本身。</p>
+            <div class="case-stat-row">
+              <div class="case-stat"><span class="val">8.5亿</span><span class="lbl">等效票房</span></div>
+              <div class="case-stat"><span class="val">8.9</span><span class="lbl">豆瓣</span></div>
+              <div class="case-stat"><span class="val">38国</span><span class="lbl">海外发行</span></div>
+              <div class="case-stat"><span class="val">32亿</span><span class="lbl">话题播放</span></div>
+            </div>
+            <p style="font-size:13px;color:var(--sk-focus);margin-top:8px;">
+              <strong>关键发现：</strong>作者品牌的"文化资本"可将方言从"沟通障碍"转化为"审美溢价"，但这一路径高度依赖创作者的个人声望。
+            </p>
+          </div>
+        </div>
+
+        <!-- Case 3: 人生大事 -->
+        <div class="case-card tilt-3d shadow-3d glass" data-tilt-max="6" data-tilt-glare="true">
+          <div class="case-card-header">
+            <span class="case-year">2022 · 商业成功</span>
+            <h3>人生大事</h3>
+            <span class="case-dialect">武汉话</span>
+          </div>
+          <div class="case-card-body">
+            <p>证明方言不仅能在文艺片中生存，在商业类型片中也具有强大竞争力。武汉方言的直爽、幽默特质天然适配殡葬题材的"用笑声化解悲伤"的叙事策略。该片的成功揭示了一个重要规律：方言的传播价值不在于"原汁原味"，而在于它与故事类型的化学反应。</p>
+            <div class="case-stat-row">
+              <div class="case-stat"><span class="val">17.1亿</span><span class="lbl">票房</span></div>
+              <div class="case-stat"><span class="val">7.3</span><span class="lbl">豆瓣</span></div>
+              <div class="case-stat"><span class="val">22国</span><span class="lbl">海外发行</span></div>
+              <div class="case-stat"><span class="val">28亿</span><span class="lbl">话题播放</span></div>
+            </div>
+            <p style="font-size:13px;color:var(--sk-focus);margin-top:8px;">
+              <strong>关键发现：</strong>方言与类型片的结合可释放巨大商业潜力——武汉话的幽默基因与喜剧类型天然耦合，形成1+1>2的效果。
+            </p>
+          </div>
+        </div>
+
+        <!-- Case 4: 隐入尘烟 -->
+        <div class="case-card tilt-3d shadow-3d glass" data-tilt-max="6" data-tilt-glare="true">
+          <div class="case-card-header">
+            <span class="case-year">2022 · 口碑逆袭</span>
+            <h3>隐入尘烟</h3>
+            <span class="case-dialect">西北方言（甘肃）</span>
+          </div>
+          <div class="case-card-body">
+            <p>一部几乎没有"商业元素"的文艺片，以甘肃方言呈现西北农村最朴素的生命质感。它的破圈路径是独特的"国际电影节→海外口碑→国内二次传播"迂回路线。在入围柏林电影节主竞赛单元后，国内观众重新发现了这部被忽视的作品，最终实现票房逆袭。</p>
+            <div class="case-stat-row">
+              <div class="case-stat"><span class="val">1.1亿</span><span class="lbl">票房</span></div>
+              <div class="case-stat"><span class="val">8.4</span><span class="lbl">豆瓣</span></div>
+              <div class="case-stat"><span class="val">28国</span><span class="lbl">海外发行</span></div>
+              <div class="case-stat"><span class="val">8亿</span><span class="lbl">话题播放</span></div>
+            </div>
+            <p style="font-size:13px;color:var(--sk-focus);margin-top:8px;">
+              <strong>关键发现：</strong>"墙外开花墙内香"的迂回路径对文艺片依然有效——国际电影节的权威背书是国内观众重新评估影片价值的关键触发点。
+            </p>
+          </div>
+        </div>
+
+        <!-- Case 5: 无名之辈 -->
+        <div class="case-card tilt-3d shadow-3d glass" data-tilt-max="6" data-tilt-glare="true">
+          <div class="case-card-header">
+            <span class="case-year">2018 · 黑马突围</span>
+            <h3>无名之辈</h3>
+            <span class="case-dialect">西南官话（贵州）</span>
+          </div>
+          <div class="case-card-body">
+            <p>在2018年竞争激烈的市场中，这部没有大导演、大明星、大IP的中小成本电影，凭借贵州方言的喜剧效果和扎实的群像叙事成为年度黑马。该片揭示了方言在犯罪喜剧这一特定类型中的独特优势——方言让"笨贼"更笨、更可爱、更可信。</p>
+            <div class="case-stat-row">
+              <div class="case-stat"><span class="val">7.9亿</span><span class="lbl">票房</span></div>
+              <div class="case-stat"><span class="val">8.1</span><span class="lbl">豆瓣</span></div>
+              <div class="case-stat"><span class="val">10国</span><span class="lbl">海外发行</span></div>
+              <div class="case-stat"><span class="val">15亿</span><span class="lbl">话题播放</span></div>
+            </div>
+            <p style="font-size:13px;color:var(--sk-focus);margin-top:8px;">
+              <strong>关键发现：</strong>方言与特定类型（犯罪喜剧）的化学反应可以成为中小成本电影突围的差异化武器——方言不是"文艺"的代名词，它是"真实感"的生产工具。
+            </p>
+          </div>
+        </div>
+
+        <!-- Case 6: 南方车站的聚会 -->
+        <div class="case-card tilt-3d shadow-3d glass" data-tilt-max="6" data-tilt-glare="true">
+          <div class="case-card-header">
+            <span class="case-year">2019 · 国际路径</span>
+            <h3>南方车站的聚会</h3>
+            <span class="case-dialect">武汉话</span>
+          </div>
+          <div class="case-card-body">
+            <p>刁亦男在《白日焰火》柏林金熊奖之后的又一力作，全程武汉方言。该片的传播路径高度国际化——在戛纳电影节首映后，国际影评界对其"武汉味"的讨论反过来塑造了国内观众的期待视野。武汉话在国际舞台上成为了"真实中国"的声景符号。</p>
+            <div class="case-stat-row">
+              <div class="case-stat"><span class="val">2亿</span><span class="lbl">票房</span></div>
+              <div class="case-stat"><span class="val">7.4</span><span class="lbl">豆瓣</span></div>
+              <div class="case-stat"><span class="val">35国</span><span class="lbl">海外发行</span></div>
+              <div class="case-stat"><span class="val">6亿</span><span class="lbl">话题播放</span></div>
+            </div>
+            <p style="font-size:13px;color:var(--sk-focus);margin-top:8px;">
+              <strong>关键发现：</strong>国际电影节体系为方言电影提供了"文化合法性"认证——当方言被国际影评人视为"作者风格"而非"传播障碍"时，它的文化价值得到重新定义。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparative Analysis -->
+  <section class="section" style="background:var(--sk-body-bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Comparison</p>
+        <h2 class="serif">比较分析</h2>
+        <p>六部影片的传播模式对比</p>
+      </div>
+
+      <div class="reveal" style="max-width:800px;margin:0 auto;">
+        <div class="cmp-scroll">
+          <table class="cmp-table">
+            <thead>
+              <tr>
+                <th>影片</th>
+                <th>方言类型</th>
+                <th>主要传播路径</th>
+                <th>破圈机制</th>
+                <th>海外路径</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="ok">
+                <td>给阿嬷的情书</td>
+                <td>闽南语</td>
+                <td>短视频情感裂变</td>
+                <td><span class="tag ok">情感原型</span></td>
+                <td>离散社群 + 字幕组</td>
+              </tr>
+              <tr class="ok">
+                <td>繁花</td>
+                <td>上海话</td>
+                <td>作者品牌 + 文化资本</td>
+                <td><span class="tag ok">审美溢价</span></td>
+                <td>王家卫品牌</td>
+              </tr>
+              <tr class="ok">
+                <td>人生大事</td>
+                <td>武汉话</td>
+                <td>类型片市场渠道</td>
+                <td><span class="tag ok">类型适配</span></td>
+                <td>商业发行体系</td>
+              </tr>
+              <tr class="no">
+                <td>隐入尘烟</td>
+                <td>西北方言</td>
+                <td>电影节迂回路径</td>
+                <td><span class="tag no">权威背书</span></td>
+                <td>柏林电影节</td>
+              </tr>
+              <tr class="ok">
+                <td>无名之辈</td>
+                <td>西南官话</td>
+                <td>口碑驱动黑马</td>
+                <td><span class="tag ok">类型适配</span></td>
+                <td>有限海外发行</td>
+              </tr>
+              <tr class="no">
+                <td>南方车站的聚会</td>
+                <td>武汉话</td>
+                <td>国际电影节路径</td>
+                <td><span class="tag no">国际认证</span></td>
+                <td>戛纳电影节</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cmp-insight reveal">
+          <p>比较分析显示：<span class="hi">没有"唯一正确"的破圈路径</span>。不同类型的方言电影需要匹配不同的传播基础设施——短视频算法适合情感型叙事，电影节体系适合作者电影，类型片市场适合方言喜剧。关键是<span class="hi">为方言内容找到正确的传播通道</span>，而非改造方言以适应传播。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <a href="index.html" class="back-to-top">← 返回首页</a>
+        <p style="margin-top:24px;">© 2026 方言电影传播研究 · 大连外国语大学 · 数据新闻大赛</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="effects3d.js"></script>
+</body>
+</html>

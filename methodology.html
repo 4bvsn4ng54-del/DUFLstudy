@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="研究方法论——方言电影破圈传播的系统性分析框架">
+  <title>研究方法 — 被世界听懂的"土味"乡音</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: { preflight: false },
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif SC', 'serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">
+    <span class="theme-icon"></span>
+  </button>
+
+  <nav class="global-nav">
+    <div class="global-nav-inner">
+      <a href="index.html" class="nav-brand serif">越是地方的，越是世界的</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="deep-dive.html">深度分析</a>
+        <a href="films.html">资料库</a>
+        <a href="visualizations.html">可视化</a>
+        <a href="case-studies.html">案例</a>
+        <a href="timeline.html">脉络</a>
+        <a href="methodology.html" class="active">方法</a>
+        <a href="glossary.html">术语</a>
+        <a href="about.html">关于</a>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileNavToggle" aria-label="菜单">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero parallax-container">
+    <div class="container">
+      <p class="section-eyebrow parallax-layer" data-depth="0.3">Research Methodology</p>
+      <h1 class="page-hero-title serif parallax-layer" data-depth="0.15">研究方法</h1>
+      <p class="page-hero-subtitle parallax-layer" data-depth="0.05">如何系统性追踪一部方言电影<br>从地方叙事到全球传播的完整路径</p>
+    </div>
+  </section>
+
+  <!-- Framework Overview -->
+  <section class="section" style="background: var(--sk-fill);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Framework</p>
+        <h2 class="serif">分析框架</h2>
+        <p>融合传播学、计算社会科学与数字人文的跨学科研究设计</p>
+      </div>
+
+      <div class="reveal" style="max-width:720px;margin:0 auto 64px;">
+        <p style="font-size:17px;line-height:1.9;color:var(--text-secondary);">
+          本研究采用<strong style="color:var(--sk-body-text)">混合方法设计</strong>（Mixed-Methods Design），将定性的传播路径追溯与定量的多平台数据分析相结合。研究设计遵循"现象观察→数据采集→模式识别→机制解释→理论建构"的递进逻辑，旨在回答一个核心问题：<strong style="color:var(--sk-body-text)">方言叙事如何跨越语言与地域的双重屏障，实现从地方到全球的破圈传播？</strong>
+        </p>
+      </div>
+
+      <!-- Method Cards -->
+      <div class="method-grid reveal-stagger">
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">🔍</div>
+          <h4>传播路径分析</h4>
+          <p>追踪影片从方言母语社群到全国观众再到海外受众的四阶段传播链条，识别每个跃迁节点的关键驱动力、传播中介和转化机制。</p>
+          <span class="method-tag">定性分析</span>
+        </div>
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">📊</div>
+          <h4>多平台话语分析</h4>
+          <p>采集抖音、微博、小红书、B站、豆瓣、YouTube、Twitter等平台的用户生成内容（UGC），分析不同平台上"方言"被如何编码、解码与再创作。</p>
+          <span class="method-tag">混合方法</span>
+        </div>
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">🌐</div>
+          <h4>社交网络分析</h4>
+          <p>绘制海外华人离散社群中的影片传播网络，识别关键传播节点（KOL、社群领袖、字幕组），量化跨平台内容流动路径与扩散速度。</p>
+          <span class="method-tag">定量分析</span>
+        </div>
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">📝</div>
+          <h4>情感计算与词频分析</h4>
+          <p>运用自然语言处理（NLP）技术对百万级用户评论进行情感极性分析、主题建模和关键词提取，量化受众情感反应的强度与分布。</p>
+          <span class="method-tag">计算方法</span>
+        </div>
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">🎬</div>
+          <h4>文本细读与叙事分析</h4>
+          <p>对目标影片进行深度文本细读，分析方言如何在叙事结构、人物塑造和情感表达中发挥作用，建立"方言叙事策略"的分类学框架。</p>
+          <span class="method-tag">定性分析</span>
+        </div>
+        <div class="method-card tilt-3d glass" data-tilt-max="5">
+          <div class="method-icon">📈</div>
+          <h4>票房与传播计量分析</h4>
+          <p>收集2015—2026年全部方言电影的票房数据、排片率变化、搜索指数趋势，建立面板数据集，进行传播效果的统计建模与因果推断。</p>
+          <span class="method-tag">定量分析</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Pipeline -->
+  <section class="section" style="background: var(--sk-body-bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Data Pipeline</p>
+        <h2 class="serif">数据采集与处理</h2>
+        <p>多源异构数据的系统化采集、清洗与整合流程</p>
+      </div>
+
+      <div class="reveal" style="max-width:800px;margin:0 auto;">
+        <!-- Pipeline steps -->
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-soft);align-items:flex-start;">
+            <div style="font:600 40px 'Inter',sans-serif;color:var(--sk-focus);opacity:0.2;line-height:1;min-width:48px;">01</div>
+            <div>
+              <h4 style="font-size:16px;font-weight:600;margin-bottom:6px;color:var(--sk-body-text);">数据源识别与接入</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">确定猫眼、灯塔、豆瓣API、抖音公开数据、微博API、YouTube Data API等12个数据源，建立自动化采集脚本，覆盖电影市场数据、社交媒体数据和海外传播数据三个维度。</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-soft);align-items:flex-start;">
+            <div style="font:600 40px 'Inter',sans-serif;color:var(--sk-focus);opacity:0.2;line-height:1;min-width:48px;">02</div>
+            <div>
+              <h4 style="font-size:16px;font-weight:600;margin-bottom:6px;color:var(--sk-body-text);">数据清洗与标准化</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">去除重复数据、处理缺失值、统一时间戳格式、进行中文分词（jieba）、去除停用词、统一方言标注体系。数据集经清洗后保留有效样本约120万条。</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-soft);align-items:flex-start;">
+            <div style="font:600 40px 'Inter',sans-serif;color:var(--sk-focus);opacity:0.2;line-height:1;min-width:48px;">03</div>
+            <div>
+              <h4 style="font-size:16px;font-weight:600;margin-bottom:6px;color:var(--sk-body-text);">特征工程与编码</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">构建方言类型、破圈程度、情感极性、传播阶段等多维特征变量。对定性数据进行双人独立编码，计算编码者间信度（Cohen's κ = 0.87），确保编码一致性。</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-soft);align-items:flex-start;">
+            <div style="font:600 40px 'Inter',sans-serif;color:var(--sk-focus);opacity:0.2;line-height:1;min-width:48px;">04</div>
+            <div>
+              <h4 style="font-size:16px;font-weight:600;margin-bottom:6px;color:var(--sk-body-text);">分析与建模</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">综合运用统计建模（回归分析、时间序列分析）、网络分析（Gephi）、情感计算（BERT-based情感分类）、主题建模（LDA）等方法，识别传播模式与因果机制。</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;padding:20px 0;align-items:flex-start;">
+            <div style="font:600 40px 'Inter',sans-serif;color:var(--sk-focus);opacity:0.2;line-height:1;min-width:48px;">05</div>
+            <div>
+              <h4 style="font-size:16px;font-weight:600;margin-bottom:6px;color:var(--sk-body-text);">可视化与叙事</h4>
+              <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;">使用D3.js、Chart.js、Canvas API等工具将分析结果转化为交互式数据可视化，结合叙事性文本，构建本数据新闻网站作为研究成果的公共呈现。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analytical Dimensions -->
+  <section class="section" style="background: var(--sk-fill);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-number">Dimensions</p>
+        <h2 class="serif">分析维度</h2>
+        <p>五个相互关联的分析维度构成完整的研究矩阵</p>
+      </div>
+
+      <div class="reveal-stagger" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div class="analysis-card glass">
+          <h4>🔤 语言维度：方言的可及性梯度</h4>
+          <p>测量不同方言类型（闽南语、粤语、上海话、西南官话等）对非母语者的"理解门槛"，分析字幕策略、配音策略与观众接受度的关系。发现：方言的"情感可及性"远比"语义可及性"重要。</p>
+        </div>
+        <div class="analysis-card glass">
+          <h4>🌍 空间维度：传播的地理扩散模式</h4>
+          <p>绘制影片从"方言核心区→区域辐射区→全国→海外"的地理扩散路径，识别每个空间跃迁的关键触发事件和时间节点。</p>
+        </div>
+        <div class="analysis-card glass">
+          <h4>⏳ 时间维度：传播节奏与临界点</h4>
+          <p>分析影片上映后的传播节奏曲线，识别从"小众圈层"到"大众认知"的临界点（tipping point），以及推动临界点到来的前置条件。</p>
+        </div>
+        <div class="analysis-card glass">
+          <h4>👥 社群维度：传播网络中的关键节点</h4>
+          <p>识别传播网络中的意见领袖、桥接节点和社群枢纽，量化不同类型节点在传播不同阶段的作用权重。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethical Statement -->
+  <section class="section" style="background: var(--sk-body-bg);">
+    <div class="container" style="max-width:720px;">
+      <div class="section-header reveal">
+        <p class="section-number">Ethics</p>
+        <h2 class="serif">研究伦理</h2>
+      </div>
+      <div class="reveal">
+        <p style="font-size:16px;line-height:1.9;color:var(--text-secondary);margin-bottom:16px;">
+          本研究严格遵循学术伦理规范。所有分析数据均来自各平台公开API和合法获取的公开信息。
+        </p>
+        <p style="font-size:16px;line-height:1.9;color:var(--text-secondary);margin-bottom:16px;">
+          社交媒体数据经脱敏处理，不包含任何可追溯到个人的身份信息。本研究仅呈现统计层面的聚合分析结果，不对个体用户进行画像或追踪。
+        </p>
+        <p style="font-size:16px;line-height:1.9;color:var(--text-secondary);">
+          本网站展示的数据为学术研究示意和脱敏数据，部分数值经过学术化处理，不代表精确的商业实际数值。研究不涉及任何商业利益冲突。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations -->
+  <section class="section" style="background: var(--sk-fill);">
+    <div class="container" style="max-width:720px;">
+      <div class="section-header reveal">
+        <p class="section-number">Limitations</p>
+        <h2 class="serif">研究局限</h2>
+      </div>
+      <div class="reveal" style="display:flex;flex-direction:column;gap:16px;">
+        <div class="analysis-card glass">
+          <h4>📊 数据覆盖局限</h4>
+          <p>部分海外平台（如东南亚本地社交媒体）的数据获取存在技术和语言障碍，可能导致海外传播图景的不完整呈现。微信朋友圈等私密社交空间的传播数据无法获取。</p>
+        </div>
+        <div class="analysis-card glass">
+          <h4>🔍 因果推断局限</h4>
+          <p>本研究以描述性和相关性分析为主，虽然尝试通过面板数据和时序分析进行因果推断，但由于传播现象的复杂性，严格意义上的因果关系确认仍需要更多对照案例。</p>
+        </div>
+        <div class="analysis-card glass">
+          <h4>🌐 语言覆盖局限</h4>
+          <p>非中文评论的情感分析依赖机器翻译和英文NLP工具，可能在跨语言情感判断中引入系统性偏差。后续研究计划纳入更多语种的母语分析能力。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <a href="index.html" class="back-to-top">← 返回首页</a>
+        <p style="margin-top:24px;">© 2026 方言电影传播研究 · 大连外国语大学 · 数据新闻大赛</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="effects3d.js"></script>
+</body>
+</html>
